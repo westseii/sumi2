@@ -1,6 +1,10 @@
 import { attribute } from "./attribute.js";
 import { cap } from "./cap.js";
 import { findSkillById, skill } from "./skill.js";
-import { materialUtils } from "./material.js";
+import { gatherable } from "./gatherable.js";
+import { material } from "./material.js";
 
-export { attribute, cap, findSkillById, materialUtils, skill };
+//
+// conglomerate Ashfalle modules
+
+export { attribute, cap, findSkillById, gatherable, material, skill };

@@ -1,5 +1,13 @@
 import { reactive } from "vue";
 
+/** Reactive attribute data for Ashfalle playground.
+ * @type {object}
+ * @property {object} str - strength attribute data
+ * @property {object} end - endurance attribute data
+ * @property {object} int - intellect attribute data
+ * @property {object} tui - intuition attribute data
+ * @property {object} apt - aptitude attribute data
+ */
 const attribute = reactive({
   str: {
     _id: 0,

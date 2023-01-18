@@ -20,6 +20,9 @@ const rankCostUtility = {
   specialize: Infinity,
 };
 
+/** Reactive skill data for Ashfalle playground.
+ * @type {object}
+ */
 const skill = reactive({
   //
   // Combat skills

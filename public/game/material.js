@@ -1,6 +1,6 @@
 const goldStandard = 1; // scalar for all other material values
 
-const materialQuality = {
+const materialQualityData = {
   tier0: {
     floor: 2,
     ceiling: 2.75,
@@ -35,7 +35,7 @@ const materialQuality = {
   },
 };
 
-const material = {
+const materialData = {
   metal: {
     copper: {
       id: 0,
@@ -154,13 +154,13 @@ const material = {
 // Utility functions
 
 /** Utility functions for Ashfalle material management. */
-const materialUtils = {
+const material = {
   /**
    * Get material quality data for a given material tier.
    * @param {number} tier - range [0, 4]
    */
-  getMaterialQuality(tier = 0) {
-    return materialQuality[`tier${tier}`];
+  getMaterialQualityData(tier = 0) {
+    return materialQualityData[`tier${tier}`];
   },
   /**
    * Get a specific material type.
@@ -168,8 +168,18 @@ const materialUtils = {
    * @param {string} name - ex: gold
    */
   getMaterialData(type = "metal", name = "gold") {
-    return material[type][name];
+    if (materialData[type][name] !== undefined) return materialData[type][name];
+    else
+      return {
+        id: -1,
+        name: "Unknown Material",
+        description: "Material does not exist.",
+        valueScale: 0,
+        get value() {
+          return this.valueScale;
+        },
+      };
   },
 };
 
-export { materialUtils };
+export { material };
