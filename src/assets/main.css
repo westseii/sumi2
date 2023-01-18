@@ -1,0 +1,13 @@
+@import "./base.css";
+@import "./sumi.css";
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+
+html {
+  font-size: 14px;
+}
+
+body {
+  background: var(--surface-0);
+  color: var(--text-color);
+  font-family: "Open Sans", sans-serif;
+}
