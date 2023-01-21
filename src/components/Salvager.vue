@@ -1,13 +1,17 @@
 <script setup>
-  import { gatherable, material } from "../../public/game/ashfalle.js";
+  import { ref } from "vue";
+  import { material } from "../../public/game/ashfalle.js";
+
+  const salvageArray = ref([]);
 </script>
 
 <template>
   <div>
     <div class="sumi-pane">
       <h2>Salvager</h2>
-      <div>{{ material.getMaterialData("metal", "") }}</div>
-      <div>{{ gatherable.getGatherableData("herb", "") }}</div>
+      <hr class="sumi-rule-sm" />
+
+      <div>{{ material.getMaterialQualityDataByTier(3) }}</div>
     </div>
   </div>
 </template>

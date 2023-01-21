@@ -1,6 +1,8 @@
 import { computed, reactive } from "vue";
 import { attribute } from "./attribute.js";
 
+// TODO: need functions to increase attributes and check for cap
+
 const rankMultiplier = 5;
 
 const rankCostCombat = {
@@ -407,6 +409,7 @@ const skill = reactive({
 /**
  * Get reactive skill data for a given skill id.
  * @param {number} id
+ * @returns {object} object
  */
 function findSkillById(id) {
   return Object.values(skill).find((skill) => skill._id === id);

@@ -156,16 +156,32 @@ const materialData = {
 /** Utility functions for Ashfalle material management. */
 const material = {
   /**
-   * Get material quality data for a given material tier.
-   * @param {number} tier - range [0, 4]
-   */
-  getMaterialQualityData(tier = 0) {
-    return materialQualityData[`tier${tier}`];
+   * Get material quality data for a given material artistry value.
+   * @param {number} artistry - float
+   * @returns {object} object
+   */ getMaterialQualityDataByArtistry(artistry) {
+    for (const key of Object.keys(materialQualityData)) {
+      const tier = materialQualityData[key];
+      if (artistry >= tier.floor && artistry < tier.ceiling) return tier;
+    }
+    return materialQualityData.tier1;
   },
+
+  /**
+   * Get material quality data for a given material tier.
+   * @param {number} tier - int range [0, 4]
+   * @returns {object} object
+   */ getMaterialQualityDataByTier(tier = 1) {
+    return materialQualityData[`tier${tier}`]
+      ? materialQualityData[`tier${tier}`]
+      : materialQualityData.tier1;
+  },
+
   /**
    * Get a specific material type.
-   * @param {string} type - ex: metal
-   * @param {string} name - ex: gold
+   * @param {string} type - ex: "metal"
+   * @param {string} name - ex: "gold"
+   * @returns {object} object
    */
   getMaterialData(type = "metal", name = "gold") {
     if (materialData[type][name] !== undefined) return materialData[type][name];

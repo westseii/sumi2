@@ -1,12 +1,14 @@
 import { reactive } from "vue";
 
+// TODO: need functions to increase attributes and check for cap
+
 /** Reactive attribute data for Ashfalle playground.
  * @type {object}
- * @property {object} str - strength attribute data
- * @property {object} end - endurance attribute data
- * @property {object} int - intellect attribute data
- * @property {object} tui - intuition attribute data
- * @property {object} apt - aptitude attribute data
+ * @property {object} str - strength data
+ * @property {object} end - endurance data
+ * @property {object} int - intellect data
+ * @property {object} tui - intuition data
+ * @property {object} apt - aptitude data
  */
 const attribute = reactive({
   str: {

@@ -77,8 +77,9 @@ const gatherableData = {
 const gatherable = {
   /**
    * Get a specific gatherable type.
-   * @param {string} type - ex: herb
-   * @param {string} name - ex: emeraldStarleaf
+   * @param {string} type - ex: "herb"
+   * @param {string} name - ex: "emeraldStarleaf"
+   * @returns {object} object
    */
   getGatherableData(type = "herb", name = "emeraldStarleaf") {
     if (gatherableData[type][name] !== undefined) return gatherableData[type][name];
