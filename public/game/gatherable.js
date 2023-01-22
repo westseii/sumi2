@@ -88,7 +88,7 @@ const gatherable = {
         id: -1,
         name: "Unknown Gatherable",
         description: "Gatherable does not exist.",
-      };
+      }; // default
   },
 };
 

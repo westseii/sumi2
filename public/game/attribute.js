@@ -1,6 +1,5 @@
 import { reactive } from "vue";
-
-// TODO: need functions to increase attributes and check for cap
+import { cap } from "./cap.js";
 
 /** Reactive attribute data for Ashfalle playground.
  * @type {object}
@@ -10,7 +9,7 @@ import { reactive } from "vue";
  * @property {object} tui - intuition data
  * @property {object} apt - aptitude data
  */
-const attribute = reactive({
+const attributeData = reactive({
   str: {
     _id: 0,
     _name: "Strength",
@@ -19,7 +18,7 @@ const attribute = reactive({
       _name: "Might",
       increased: 0,
       get value() {
-        return attribute.str.value * 2 + this.increased;
+        return attributeData.str.value * 2 + this.increased;
       },
     },
     innate: 1,
@@ -37,7 +36,7 @@ const attribute = reactive({
       _name: "Finesse",
       increased: 0,
       get value() {
-        return attribute.end.value * 2 + this.increased;
+        return attributeData.end.value * 2 + this.increased;
       },
     },
     innate: 1,
@@ -55,7 +54,7 @@ const attribute = reactive({
       _name: "Cunning",
       increased: 0,
       get value() {
-        return attribute.int.value * 2 + this.increased;
+        return attributeData.int.value * 2 + this.increased;
       },
     },
     innate: 1,
@@ -73,7 +72,7 @@ const attribute = reactive({
       _name: "Instinct",
       increased: 0,
       get value() {
-        return attribute.tui.value * 2 + this.increased;
+        return attributeData.tui.value * 2 + this.increased;
       },
     },
     innate: 1,
@@ -96,5 +95,19 @@ const attribute = reactive({
     },
   },
 });
+
+//
+// Utility functions
+
+/** Utility functions for Ashfalle attributes. */
+const attribute = {
+  /**
+   * Get a reactive attribute data object for all attributes.
+   * @returns {object} object
+   */
+  getAttributes() {
+    return attributeData;
+  },
+};
 
 export { attribute };

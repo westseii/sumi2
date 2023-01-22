@@ -159,22 +159,24 @@ const material = {
    * Get material quality data for a given material artistry value.
    * @param {number} artistry - float
    * @returns {object} object
-   */ getMaterialQualityDataByArtistry(artistry) {
+   */
+  getMaterialQualityDataByArtistry(artistry) {
     for (const key of Object.keys(materialQualityData)) {
       const tier = materialQualityData[key];
       if (artistry >= tier.floor && artistry < tier.ceiling) return tier;
     }
-    return materialQualityData.tier1;
+    return materialQualityData.tier1; // default
   },
 
   /**
    * Get material quality data for a given material tier.
    * @param {number} tier - int range [0, 4]
    * @returns {object} object
-   */ getMaterialQualityDataByTier(tier = 1) {
+   */
+  getMaterialQualityDataByTier(tier = 1) {
     return materialQualityData[`tier${tier}`]
       ? materialQualityData[`tier${tier}`]
-      : materialQualityData.tier1;
+      : materialQualityData.tier1; // default
   },
 
   /**
@@ -194,7 +196,7 @@ const material = {
         get value() {
           return this.valueScale;
         },
-      };
+      }; // default
   },
 };
 

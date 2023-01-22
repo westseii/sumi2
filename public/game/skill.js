@@ -1,7 +1,6 @@
 import { computed, reactive } from "vue";
 import { attribute } from "./attribute.js";
-
-// TODO: need functions to increase attributes and check for cap
+import { cap } from "./cap.js";
 
 const rankMultiplier = 5;
 
@@ -25,7 +24,7 @@ const rankCostUtility = {
 /** Reactive skill data for Ashfalle playground.
  * @type {object}
  */
-const skill = reactive({
+const skillData = reactive({
   //
   // Combat skills
   heavyWeapons: {
@@ -400,19 +399,43 @@ const skill = reactive({
 
   //
   // Custom skills
+  // add custom skills/imports here
   // ...
+  // customSkill: {
+  //   _id: 1000,
+  //   _name: "Custom Skill",
+  //   _description: "Todo.",
+  //   raised: 0,
+  //   rank: 0,
+  //   _rankCost: rankCostUtility,
+  //   _formulaHint: `...`,
+  //   _formulaRaise: computed(() => 0),
+  //   get value() {
+  //     return this.raised + this._formulaRaise + this.rank * rankMultiplier;
+  //   },
+  // },
 });
 
 //
 // Utility functions
 
-/**
- * Get reactive skill data for a given skill id.
- * @param {number} id
- * @returns {object} object
- */
-function findSkillById(id) {
-  return Object.values(skill).find((skill) => skill._id === id);
-}
+/** Utility functions for Ashfalle skills. */
+const skill = {
+  /**
+   * Get a reactive skill data object for all skills.
+   * @returns {object} object
+   */
+  getSkills() {
+    return skillData;
+  },
+  /**
+   * Get a reactive skill data object for a given skill id.
+   * @param {number} id
+   * @returns {object} object
+   */
+  getSkillById(id) {
+    return Object.values(skillData).find((skill) => skill._id === id);
+  },
+};
 
-export { findSkillById, skill };
+export { skill };
