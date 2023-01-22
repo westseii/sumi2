@@ -5,67 +5,94 @@
   const attr = attribute.getAttributes();
   const innatePointsRemaining = computed(() => {
     let subtractive = 0;
-    for (const i of Object.values(attr)) {
-      subtractive += i.innate;
+    for (const value of Object.values(attr)) {
+      subtractive += value.innate;
     }
     return 15 - subtractive;
   });
+  const zeroClass = computed(() => (innatePointsRemaining.value < 1 ? "color-zero" : ""));
 </script>
 
 <template>
   <div class="sumi-pane">
     <h2>Edit Attributes</h2>
-    <hr class="sumi-rule-sm" />
-
-    <div>
-      <div>Innate points: {{ innatePointsRemaining }}</div>
-    </div>
-
-    <div class="sumi-table-headings">
-      <div class="sumi-table-col col-1">Attribute</div>
-      <div class="sumi-table-col col-2">Innate</div>
-      <div class="sumi-table-col col-3">Raised</div>
-      <div class="sumi-table-col col-4">Total</div>
-      <div class="sumi-table-col col-5">Secondary</div>
-      <div class="sumi-table-col col-6">Secondary Total</div>
-    </div>
-    <div>
+    <!-- informational panel -->
+    <div class="sumi-pane">
       <div
-        class="sumi-table-row"
-        v-for="a in attr"
+        :class="zeroClass"
+        v-show="innatePointsRemaining >= 0"
       >
-        <div class="sumi-table-col col-1">{{ a._name }}</div>
-        <div class="sumi-table-col col-2">
-          <Slider
-            :max="6"
-            :min="1"
-            :step="1"
-            class="attribute-slider"
-            v-model="a.innate"
-          />
-        </div>
-        <div class="sumi-table-col col-3">
-          <input
-            class="attribute-input"
-            v-model.number="a.raised"
-          />
-        </div>
-        <div class="sumi-table-col col-4 color-total">{{ a.value }}</div>
-        <div class="sumi-table-col col-5">
-          <span v-if="a._secondary._name !== undefined">{{ a._secondary._name }}</span>
-          <span
-            class="color-muted"
-            v-else
-            >No secondary</span
+        Innate points: {{ innatePointsRemaining }}
+      </div>
+      <div
+        :class="zeroClass"
+        v-show="innatePointsRemaining < 0"
+      >
+        You've spent too many innate points!
+      </div>
+    </div>
+    <div class="attributes-table">
+      <!-- table headings -->
+      <div class="sumi-table-headings">
+        <div class="sumi-table-col col-1">Attribute</div>
+        <div class="sumi-table-col col-2">Innate (spent)</div>
+        <div class="sumi-table-col col-3">Raised</div>
+        <div class="sumi-table-col col-4">Total</div>
+        <div class="sumi-table-col col-5">Secondary</div>
+        <div class="sumi-table-col col-6">Secondary Total</div>
+      </div>
+      <!-- table rows -->
+      <div>
+        <div
+          class="sumi-table-row"
+          v-for="a in attr"
+        >
+          <div
+            class="sumi-table-col col-1 color-heading"
+            v-tooltip="a._description"
           >
-        </div>
-        <div class="sumi-table-col col-6 color-total">
-          <span v-if="a._secondary.value !== undefined">{{ a._secondary.value }}</span>
-          <span
-            class="color-muted"
-            v-else
-            >-</span
+            {{ a._name }}
+          </div>
+          <div class="sumi-table-col col-2">
+            <div class="slider-wrapper">
+              <Slider
+                :max="6"
+                :min="1"
+                :step="1"
+                class="slider"
+                v-model="a.innate"
+              />
+              <div
+                :class="a.innate > 1 && 'color-total'"
+                class="slider-total"
+              >
+                {{ a.innate }}
+              </div>
+            </div>
+          </div>
+          <div class="sumi-table-col col-3">{{ a.raised }}</div>
+          <div class="sumi-table-col col-4 color-total">{{ a.value }}</div>
+          <div
+            class="sumi-table-col col-5"
+            v-tooltip="a._secondary._description"
           >
+            <span v-if="a._secondary._name !== undefined">{{ a._secondary._name }}</span>
+            <span
+              class="color-muted"
+              v-else
+            >
+              None
+            </span>
+          </div>
+          <div class="sumi-table-col col-6 color-total">
+            <span v-if="a._secondary.value !== undefined"> {{ a._secondary.value }}</span>
+            <span
+              class="color-muted"
+              v-else
+            >
+              -
+            </span>
+          </div>
         </div>
       </div>
     </div>
@@ -77,36 +104,35 @@
     margin-left: 10px;
   }
   .col-2 {
-    left: 110px;
+    left: 125px;
   }
   .col-3 {
-    left: 310px;
+    left: 350px;
   }
   .col-4 {
-    left: 410px;
+    left: 425px;
   }
   .col-5 {
-    left: 510px;
+    left: 500px;
   }
   .col-6 {
-    left: 660px;
+    left: 650px;
+  }
+  .attributes-table {
+    width: 800px;
   }
 
-  .attribute-input {
-    height: 15px;
-    width: 50px;
+  .slider-wrapper {
+    align-items: center;
+    display: flex;
+    height: 0px;
   }
-  .attribute-slider {
-    border-radius: 1px;
-    height: 2px;
+  .slider {
+    border-radius: 2px;
+    height: 4px;
     width: 150px;
   }
-
-  .color-total {
-    color: var(--green-600);
-    font-weight: bold;
-  }
-  .color-muted {
-    color: var(--gray-600);
+  .slider-total {
+    margin-left: 15px;
   }
 </style>

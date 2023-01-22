@@ -2,11 +2,11 @@
   import { computed } from "vue";
 
   const props = defineProps({
-    groupName: {
+    radioGroupName: {
       type: String,
       required: true,
     },
-    skillObject: {
+    skillData: {
       type: Object,
       required: true,
     },
@@ -25,7 +25,7 @@
   });
 
   const rankClass = computed(() => {
-    switch (props.skillObject.rank) {
+    switch (props.skillData.rank) {
       case 0:
         return "color-untrained";
       case 1:
@@ -39,78 +39,31 @@
 <template>
   <div>
     <input
-      :id="skillObject._name"
-      :name="groupName"
-      :value="skillObject._id"
+      :id="skillData._name"
+      :name="radioGroupName"
+      :value="skillData._id"
       class="radio"
       type="radio"
       v-model="value"
     />
     <label
-      :for="skillObject._name"
+      :for="skillData._name"
       class="flex-row-rel row label"
     >
-      <div :class="rankClass">{{ skillObject._name }}</div>
-      <div class="col-2 color-formula">{{ skillObject._formulaHint }}</div>
-      <div class="col-3">{{ skillObject.raised }}</div>
-      <div class="col-4 color-total">{{ skillObject.value }}</div>
+      <div :class="rankClass">{{ skillData._name }}</div>
+      <div class="col-2 color-formula">{{ skillData._formulaHint }}</div>
+      <div class="col-3">{{ skillData.raised }}</div>
+      <div class="col-4 color-total">{{ skillData.value }}</div>
     </label>
   </div>
 </template>
 
 <style scoped>
-  .flex-row-rel {
-    display: flex;
-    position: relative;
-  }
-
-  .col-2 {
-    left: 200px;
-    position: absolute;
-  }
-  .col-3 {
-    left: 525px;
-    position: absolute;
-  }
-  .col-4 {
-    left: 600px;
-    position: absolute;
-  }
-
   .radio {
     display: none;
   }
   .radio:checked ~ .label {
     outline-offset: -1px;
     outline: solid 1px var(--primary-color);
-  }
-
-  .row {
-    border-bottom: solid 1px var(--surface-border);
-    line-height: 0;
-    padding: 16px 8px;
-    box-sizing: border-box;
-  }
-  .row:hover {
-    background: var(--surface-hover);
-  }
-
-  .color-specialized {
-    color: var(--blue-600);
-  }
-  .color-trained {
-    color: var(--green-600);
-  }
-  .color-untrained {
-    color: var(--gray-400);
-  }
-
-  .color-formula {
-    color: var(--bluegray-600);
-  }
-
-  .color-total {
-    color: var(--green-600);
-    font-weight: bold;
   }
 </style>

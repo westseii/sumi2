@@ -16,10 +16,15 @@ div.sumi-pane {
   border-radius: 10px;
   padding: 10px;
 }
+div.sumi-pane > div.sumi-pane {
+  background: var(--surface-hover);
+  border-radius: 5px;
+  border: solid 1px var(--surface-border);
+  width: fit-content;
+}
 
 .sumi-table-headings {
   border-bottom: solid 1px var(--surface-border);
-  color: var(--primary-color);
   display: flex;
   font-weight: bold;
   line-height: 0;
@@ -34,6 +39,8 @@ div.sumi-pane {
   position: relative;
 }
 .sumi-table-row:last-child {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
   border: none;
 }
 .sumi-table-row:hover {
@@ -41,4 +48,27 @@ div.sumi-pane {
 }
 .sumi-table-col {
   position: absolute;
+}
+
+.color-heading {
+  color: var(--primary-color);
+}
+.color-muted {
+  color: var(--gray-600);
+}
+.color-total {
+  color: var(--green-600);
+}
+.color-zero {
+  color: var(--red-600);
+}
+
+.color-specialized {
+  color: var(--blue-600);
+}
+.color-trained {
+  color: var(--green-600);
+}
+.color-untrained {
+  color: var(--gray-400);
 }
