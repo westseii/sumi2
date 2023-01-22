@@ -1,6 +1,7 @@
 import { computed, reactive } from "vue";
-import { attribute } from "./attribute.js";
-import { cap } from "./cap.js";
+import { attribute, cap } from "./ashfalle.js";
+
+const attr = attribute.getAttributes();
 
 const rankMultiplier = 5;
 
@@ -34,8 +35,8 @@ const skillData = reactive({
     raised: 0,
     rank: 0,
     _rankCost: rankCostCombat,
-    _formulaHint: `${attribute.str._name} / 2`,
-    _formulaRaise: computed(() => Math.floor(attribute.str.value / 2)),
+    _formulaHint: `${attr.str._name} / 2`,
+    _formulaRaise: computed(() => Math.floor(attr.str.value / 2)),
     get value() {
       return this.raised + this._formulaRaise + this.rank * rankMultiplier;
     },
@@ -48,8 +49,8 @@ const skillData = reactive({
     raised: 0,
     rank: 0,
     _rankCost: rankCostCombat,
-    _formulaHint: `${attribute.tui._name} / 2`,
-    _formulaRaise: computed(() => Math.floor(attribute.tui.value / 2)),
+    _formulaHint: `${attr.tui._name} / 2`,
+    _formulaRaise: computed(() => Math.floor(attr.tui.value / 2)),
     get value() {
       return this.raised + this._formulaRaise + this.rank * rankMultiplier;
     },
@@ -61,8 +62,8 @@ const skillData = reactive({
     raised: 0,
     rank: 0,
     _rankCost: rankCostCombat,
-    _formulaHint: `${attribute.end._name} / 2`,
-    _formulaRaise: computed(() => Math.floor(attribute.end.value / 2)),
+    _formulaHint: `${attr.end._name} / 2`,
+    _formulaRaise: computed(() => Math.floor(attr.end.value / 2)),
     get value() {
       return this.raised + this._formulaRaise + this.rank * rankMultiplier;
     },
@@ -74,8 +75,8 @@ const skillData = reactive({
     raised: 0,
     rank: 0,
     _rankCost: rankCostCombat,
-    _formulaHint: `${attribute.end._name} / 2`,
-    _formulaRaise: computed(() => Math.floor(attribute.end.value / 2)),
+    _formulaHint: `${attr.end._name} / 2`,
+    _formulaRaise: computed(() => Math.floor(attr.end.value / 2)),
     get value() {
       return this.raised + this._formulaRaise + this.rank * rankMultiplier;
     },
@@ -87,8 +88,8 @@ const skillData = reactive({
     raised: 0,
     rank: 0,
     _rankCost: rankCostCombat,
-    _formulaHint: `${attribute.int._name} / 2`,
-    _formulaRaise: computed(() => Math.floor(attribute.int.value / 2)),
+    _formulaHint: `${attr.int._name} / 2`,
+    _formulaRaise: computed(() => Math.floor(attr.int.value / 2)),
     get value() {
       return this.raised + this._formulaRaise + this.rank * rankMultiplier;
     },
@@ -103,8 +104,8 @@ const skillData = reactive({
     raised: 0,
     rank: 0,
     _rankCost: rankCostMitigation,
-    _formulaHint: `(${attribute.str._name} + ${attribute.end._name}) / 4`,
-    _formulaRaise: computed(() => Math.floor((attribute.str.value + attribute.end.value) / 4)),
+    _formulaHint: `(${attr.str._name} + ${attr.end._name}) / 4`,
+    _formulaRaise: computed(() => Math.floor((attr.str.value + attr.end.value) / 4)),
     get value() {
       return this.raised + this._formulaRaise + this.rank * rankMultiplier;
     },
@@ -116,8 +117,8 @@ const skillData = reactive({
     raised: 0,
     rank: 0,
     _rankCost: rankCostMitigation,
-    _formulaHint: `(${attribute.str._name} + ${attribute.end._name}) / 4`,
-    _formulaRaise: computed(() => Math.floor((attribute.str.value + attribute.end.value) / 4)),
+    _formulaHint: `(${attr.str._name} + ${attr.end._name}) / 4`,
+    _formulaRaise: computed(() => Math.floor((attr.str.value + attr.end.value) / 4)),
     get value() {
       return this.raised + this._formulaRaise + this.rank * rankMultiplier;
     },
@@ -129,8 +130,8 @@ const skillData = reactive({
     raised: 0,
     rank: 0,
     _rankCost: rankCostMitigation,
-    _formulaHint: `(${attribute.int._name} + ${attribute.tui._name}) / 4`,
-    _formulaRaise: computed(() => Math.floor((attribute.int.value + attribute.tui.value) / 4)),
+    _formulaHint: `(${attr.int._name} + ${attr.tui._name}) / 4`,
+    _formulaRaise: computed(() => Math.floor((attr.int.value + attr.tui.value) / 4)),
     get value() {
       return this.raised + this._formulaRaise + this.rank * rankMultiplier;
     },
@@ -145,8 +146,8 @@ const skillData = reactive({
     raised: 0,
     rank: 0,
     _rankCost: rankCostTrade,
-    _formulaHint: `(${attribute.int._name} + ${attribute.apt._name}) / 4`,
-    _formulaRaise: computed(() => Math.floor((attribute.int.value + attribute.apt.value) / 4)),
+    _formulaHint: `(${attr.int._name} + ${attr.apt._name}) / 4`,
+    _formulaRaise: computed(() => Math.floor((attr.int.value + attr.apt.value) / 4)),
     get value() {
       return this.raised + this._formulaRaise + this.rank * rankMultiplier;
     },
@@ -158,8 +159,8 @@ const skillData = reactive({
     raised: 0,
     rank: 0,
     _rankCost: rankCostTrade,
-    _formulaHint: `(${attribute.str._name} + ${attribute.apt._name}) / 4`,
-    _formulaRaise: computed(() => Math.floor((attribute.str.value + attribute.apt.value) / 4)),
+    _formulaHint: `(${attr.str._name} + ${attr.apt._name}) / 4`,
+    _formulaRaise: computed(() => Math.floor((attr.str.value + attr.apt.value) / 4)),
     get value() {
       return this.raised + this._formulaRaise + this.rank * rankMultiplier;
     },
@@ -171,8 +172,8 @@ const skillData = reactive({
     raised: 0,
     rank: 0,
     _rankCost: rankCostTrade,
-    _formulaHint: `(${attribute.end._name} + ${attribute.apt._name}) / 4`,
-    _formulaRaise: computed(() => Math.floor((attribute.end.value + attribute.apt.value) / 4)),
+    _formulaHint: `(${attr.end._name} + ${attr.apt._name}) / 4`,
+    _formulaRaise: computed(() => Math.floor((attr.end.value + attr.apt.value) / 4)),
     get value() {
       return this.raised + this._formulaRaise + this.rank * rankMultiplier;
     },
@@ -184,8 +185,8 @@ const skillData = reactive({
     raised: 0,
     rank: 0,
     _rankCost: rankCostTrade,
-    _formulaHint: `(${attribute.tui._name} + ${attribute.apt._name}) / 4`,
-    _formulaRaise: computed(() => Math.floor((attribute.tui.value + attribute.apt.value) / 4)),
+    _formulaHint: `(${attr.tui._name} + ${attr.apt._name}) / 4`,
+    _formulaRaise: computed(() => Math.floor((attr.tui.value + attr.apt.value) / 4)),
     get value() {
       return this.raised + this._formulaRaise + this.rank * rankMultiplier;
     },
@@ -197,8 +198,8 @@ const skillData = reactive({
     raised: 0,
     rank: 0,
     _rankCost: rankCostTrade,
-    _formulaHint: `(${attribute.end._name} + ${attribute.apt._name}) / 4`,
-    _formulaRaise: computed(() => Math.floor((attribute.end.value + attribute.apt.value) / 4)),
+    _formulaHint: `(${attr.end._name} + ${attr.apt._name}) / 4`,
+    _formulaRaise: computed(() => Math.floor((attr.end.value + attr.apt.value) / 4)),
     get value() {
       return this.raised + this._formulaRaise + this.rank * rankMultiplier;
     },
@@ -213,12 +214,10 @@ const skillData = reactive({
     raised: 0,
     rank: 0,
     _rankCost: rankCostTrade,
-    _formulaHint: `(${attribute.int._name} OR ${attribute.tui._name} + ${attribute.apt._name}) / 4`,
+    _formulaHint: `(${attr.int._name} OR ${attr.tui._name} + ${attr.apt._name}) / 4`,
     _formulaRaise: computed(() =>
       Math.floor(
-        ((attribute.int.value > attribute.tui.value ? attribute.int.value : attribute.tui.value) +
-          attribute.apt.value) /
-          4
+        ((attr.int.value > attr.tui.value ? attr.int.value : attr.tui.value) + attr.apt.value) / 4
       )
     ),
     get value() {
@@ -232,12 +231,10 @@ const skillData = reactive({
     raised: 0,
     rank: 0,
     _rankCost: rankCostTrade,
-    _formulaHint: `(${attribute.int._name} OR ${attribute.tui._name} + ${attribute.apt._name}) / 4`,
+    _formulaHint: `(${attr.int._name} OR ${attr.tui._name} + ${attr.apt._name}) / 4`,
     _formulaRaise: computed(() =>
       Math.floor(
-        ((attribute.int.value > attribute.tui.value ? attribute.int.value : attribute.tui.value) +
-          attribute.apt.value) /
-          4
+        ((attr.int.value > attr.tui.value ? attr.int.value : attr.tui.value) + attr.apt.value) / 4
       )
     ),
     get value() {
@@ -251,12 +248,10 @@ const skillData = reactive({
     raised: 0,
     rank: 0,
     _rankCost: rankCostTrade,
-    _formulaHint: `(${attribute.str._name} OR ${attribute.end._name} + ${attribute.apt._name}) / 4`,
+    _formulaHint: `(${attr.str._name} OR ${attr.end._name} + ${attr.apt._name}) / 4`,
     _formulaRaise: computed(() =>
       Math.floor(
-        ((attribute.str.value > attribute.end.value ? attribute.str.value : attribute.end.value) +
-          attribute.apt.value) /
-          4
+        ((attr.str.value > attr.end.value ? attr.str.value : attr.end.value) + attr.apt.value) / 4
       )
     ),
     get value() {
@@ -273,8 +268,8 @@ const skillData = reactive({
     raised: 0,
     rank: 0,
     _rankCost: rankCostUtility,
-    _formulaHint: `${attribute.apt._name} / 2`,
-    _formulaRaise: computed(() => Math.floor(attribute.apt.value / 2)),
+    _formulaHint: `${attr.apt._name} / 2`,
+    _formulaRaise: computed(() => Math.floor(attr.apt.value / 2)),
     get value() {
       return this.raised + this._formulaRaise + this.rank * rankMultiplier;
     },
@@ -286,8 +281,8 @@ const skillData = reactive({
     raised: 0,
     rank: 0,
     _rankCost: rankCostUtility,
-    _formulaHint: `${attribute.apt._name} / 2`,
-    _formulaRaise: computed(() => Math.floor(attribute.apt.value / 2)),
+    _formulaHint: `${attr.apt._name} / 2`,
+    _formulaRaise: computed(() => Math.floor(attr.apt.value / 2)),
     get value() {
       return this.raised + this._formulaRaise + this.rank * rankMultiplier;
     },
@@ -299,8 +294,8 @@ const skillData = reactive({
     raised: 0,
     rank: 0,
     _rankCost: rankCostUtility,
-    _formulaHint: `${attribute.apt._name} / 2`,
-    _formulaRaise: computed(() => Math.floor(attribute.apt.value / 2)),
+    _formulaHint: `${attr.apt._name} / 2`,
+    _formulaRaise: computed(() => Math.floor(attr.apt.value / 2)),
     get value() {
       return this.raised + this._formulaRaise + this.rank * rankMultiplier;
     },
@@ -312,8 +307,8 @@ const skillData = reactive({
     raised: 0,
     rank: 0,
     _rankCost: rankCostUtility,
-    _formulaHint: `${attribute.apt._name} / 2`,
-    _formulaRaise: computed(() => Math.floor(attribute.apt.value / 2)),
+    _formulaHint: `${attr.apt._name} / 2`,
+    _formulaRaise: computed(() => Math.floor(attr.apt.value / 2)),
     get value() {
       return this.raised + this._formulaRaise + this.rank * rankMultiplier;
     },
@@ -325,8 +320,8 @@ const skillData = reactive({
     raised: 0,
     rank: 0,
     _rankCost: rankCostUtility,
-    _formulaHint: `${attribute.apt._name} / 2`,
-    _formulaRaise: computed(() => Math.floor(attribute.apt.value / 2)),
+    _formulaHint: `${attr.apt._name} / 2`,
+    _formulaRaise: computed(() => Math.floor(attr.apt.value / 2)),
     get value() {
       return this.raised + this._formulaRaise + this.rank * rankMultiplier;
     },
@@ -338,8 +333,8 @@ const skillData = reactive({
     raised: 0,
     rank: 0,
     _rankCost: rankCostUtility,
-    _formulaHint: `${attribute.apt._name} / 2`,
-    _formulaRaise: computed(() => Math.floor(attribute.apt.value / 2)),
+    _formulaHint: `${attr.apt._name} / 2`,
+    _formulaRaise: computed(() => Math.floor(attr.apt.value / 2)),
     get value() {
       return this.raised + this._formulaRaise + this.rank * rankMultiplier;
     },
@@ -351,8 +346,8 @@ const skillData = reactive({
     raised: 0,
     rank: 0,
     _rankCost: rankCostUtility,
-    _formulaHint: `${attribute.apt._name} / 2`,
-    _formulaRaise: computed(() => Math.floor(attribute.apt.value / 2)),
+    _formulaHint: `${attr.apt._name} / 2`,
+    _formulaRaise: computed(() => Math.floor(attr.apt.value / 2)),
     get value() {
       return this.raised + this._formulaRaise + this.rank * rankMultiplier;
     },
@@ -364,8 +359,8 @@ const skillData = reactive({
     raised: 0,
     rank: 0,
     _rankCost: rankCostUtility,
-    _formulaHint: `${attribute.apt._name} / 2`,
-    _formulaRaise: computed(() => Math.floor(attribute.apt.value / 2)),
+    _formulaHint: `${attr.apt._name} / 2`,
+    _formulaRaise: computed(() => Math.floor(attr.apt.value / 2)),
     get value() {
       return this.raised + this._formulaRaise + this.rank * rankMultiplier;
     },
@@ -377,8 +372,8 @@ const skillData = reactive({
     raised: 0,
     rank: 0,
     _rankCost: rankCostUtility,
-    _formulaHint: `${attribute.apt._name} / 2`,
-    _formulaRaise: computed(() => Math.floor(attribute.apt.value / 2)),
+    _formulaHint: `${attr.apt._name} / 2`,
+    _formulaRaise: computed(() => Math.floor(attr.apt.value / 2)),
     get value() {
       return this.raised + this._formulaRaise + this.rank * rankMultiplier;
     },
@@ -390,8 +385,8 @@ const skillData = reactive({
     raised: 0,
     rank: 0,
     _rankCost: rankCostUtility,
-    _formulaHint: `${attribute.apt._name} / 2`,
-    _formulaRaise: computed(() => Math.floor(attribute.apt.value / 2)),
+    _formulaHint: `${attr.apt._name} / 2`,
+    _formulaRaise: computed(() => Math.floor(attr.apt.value / 2)),
     get value() {
       return this.raised + this._formulaRaise + this.rank * rankMultiplier;
     },

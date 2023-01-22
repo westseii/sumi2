@@ -1,5 +1,5 @@
 import { reactive } from "vue";
-import { cap } from "./cap.js";
+import { cap } from "./ashfalle.js";
 
 /** Reactive attribute data for Ashfalle playground.
  * @type {object}
@@ -13,7 +13,7 @@ const attributeData = reactive({
   str: {
     _id: 0,
     _name: "Strength",
-    _description: "Physical power.",
+    _description: "Physical power",
     _secondary: {
       _name: "Might",
       increased: 0,
@@ -31,7 +31,7 @@ const attributeData = reactive({
   end: {
     _id: 1,
     _name: "Endurance",
-    _description: "Physical plasticity.",
+    _description: "Physical plasticity",
     _secondary: {
       _name: "Finesse",
       increased: 0,
@@ -49,7 +49,7 @@ const attributeData = reactive({
   int: {
     _id: 2,
     _name: "Intellect",
-    _description: "Mental power.",
+    _description: "Mental power",
     _secondary: {
       _name: "Cunning",
       increased: 0,
@@ -67,7 +67,7 @@ const attributeData = reactive({
   tui: {
     _id: 3,
     _name: "Intuition",
-    _description: "Mental plasticity.",
+    _description: "Mental plasticity",
     _secondary: {
       _name: "Instinct",
       increased: 0,
@@ -85,8 +85,8 @@ const attributeData = reactive({
   apt: {
     _id: 4,
     _name: "Aptitude",
-    _description: "Well-roundedness.",
-    _secondary: "None",
+    _description: "Well-roundedness",
+    _secondary: {},
     innate: 1,
     base: 10,
     raised: 0,

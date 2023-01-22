@@ -4,7 +4,7 @@
 
 <template>
   <div>
-    <nav>
+    <nav class="nav">
       <RouterLink
         class="router-link"
         to="/crafting/salvager"
@@ -12,10 +12,13 @@
         Salvager
       </RouterLink>
     </nav>
-    <hr class="sumi-rule-sm" />
 
     <RouterView />
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+  .nav {
+    margin-bottom: 10px;
+  }
+</style>
