@@ -17,10 +17,7 @@ import "primeicons/primeicons.css";
 import Tooltip from "primevue/tooltip";
 
 import Button from "primevue/button";
-import Checkbox from "primevue/checkbox";
-import InputNumber from "primevue/inputnumber";
 import Slider from "primevue/slider";
-import ToggleButton from "primevue/togglebutton";
 
 const app = createApp(App);
 const head = createHead();
@@ -29,10 +26,7 @@ const head = createHead();
 app.directive("tooltip", Tooltip);
 
 app.component("Button", Button);
-app.component("Checkbox", Checkbox);
-app.component("InputNumber", InputNumber);
 app.component("Slider", Slider);
-app.component("ToggleButton", ToggleButton);
 
 app.use(createPinia());
 app.use(router);

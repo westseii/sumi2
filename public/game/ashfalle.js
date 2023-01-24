@@ -5,6 +5,8 @@ import { material } from "./material.js";
 import { skill } from "./skill.js";
 
 //
-// conglomerate Ashfalle modules
+// main Ashfalle module
+
+// temp
 
 export { attribute, cap, gatherable, material, skill };

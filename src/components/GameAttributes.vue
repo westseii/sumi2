@@ -44,6 +44,7 @@
       <!-- table rows -->
       <div>
         <div
+          :key="a._id"
           class="sumi-table-row"
           v-for="a in attr"
         >
@@ -118,6 +119,7 @@
   .col-6 {
     left: 650px;
   }
+
   .attributes-table {
     width: 800px;
   }

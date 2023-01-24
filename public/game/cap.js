@@ -7,7 +7,7 @@ import { reactive } from "vue";
  */
 const cap = reactive({
   level: 50,
-  get skillRaise() {
+  get raise() {
     return this.level * 2;
   },
 });

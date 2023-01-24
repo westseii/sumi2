@@ -414,6 +414,9 @@ const skillData = reactive({
 //
 // Utility functions
 
+// TODO: write tests
+// TODO: rank up/down functions
+
 /** Utility functions for Ashfalle skills. */
 const skill = {
   /**
@@ -430,6 +433,14 @@ const skill = {
    */
   getSkillById(id) {
     return Object.values(skillData).find((skill) => skill._id === id);
+  },
+  /**
+   * TODO: desc.
+   * @param {number} id
+   */
+  raiseSkill(id) {
+    const skl = this.getSkillById(id);
+    if (skl.raised < cap.raise) skl.raised++;
   },
 };
 

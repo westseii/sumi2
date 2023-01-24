@@ -15,12 +15,12 @@ div.sumi-pane {
   background: var(--surface-card);
   border-radius: 10px;
   padding: 10px;
+  width: fit-content;
 }
 div.sumi-pane > div.sumi-pane {
   background: var(--surface-hover);
   border-radius: 5px;
   border: solid 1px var(--surface-border);
-  width: fit-content;
 }
 
 .sumi-table-headings {
@@ -37,11 +37,6 @@ div.sumi-pane > div.sumi-pane {
   line-height: 0;
   padding: 20px 0;
   position: relative;
-}
-.sumi-table-row:last-child {
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-  border: none;
 }
 .sumi-table-row:hover {
   background: var(--surface-hover);

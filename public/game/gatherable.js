@@ -73,6 +73,8 @@ const gatherableData = {
 //
 // Utility functions
 
+// TODO: write tests
+
 /** Utility functions for Ashfalle gatherables. */
 const gatherable = {
   /**

@@ -1,7 +1,7 @@
 const goldStandard = 1; // scalar for all other material values
 
 const materialQualityData = {
-  tier0: {
+  qualityTier0: {
     floor: 2,
     ceiling: 2.75,
     prefix: {
@@ -9,7 +9,7 @@ const materialQualityData = {
       gemstone: "Rough",
     },
   },
-  tier1: {
+  qualityTier1: {
     floor: 2.75,
     ceiling: 3.5,
     prefix: {
@@ -17,7 +17,7 @@ const materialQualityData = {
       gemstone: "",
     },
   },
-  tier2: {
+  qualityTier2: {
     floor: 3.5,
     ceiling: 4.25,
     prefix: {
@@ -25,7 +25,7 @@ const materialQualityData = {
       gemstone: "Pristine",
     },
   },
-  tier3: {
+  qualityTier3: {
     floor: 4.25,
     ceiling: Infinity,
     prefix: {
@@ -153,6 +153,8 @@ const materialData = {
 //
 // Utility functions
 
+// TODO: write tests
+
 /** Utility functions for Ashfalle material management. */
 const material = {
   /**
@@ -165,7 +167,7 @@ const material = {
       const tier = materialQualityData[key];
       if (artistry >= tier.floor && artistry < tier.ceiling) return tier;
     }
-    return materialQualityData.tier1; // default
+    return materialQualityData.qualityTier1; // default
   },
 
   /**
@@ -176,7 +178,7 @@ const material = {
   getMaterialQualityDataByTier(tier = 1) {
     return materialQualityData[`tier${tier}`]
       ? materialQualityData[`tier${tier}`]
-      : materialQualityData.tier1; // default
+      : materialQualityData.qualityTier1; // default
   },
 
   /**

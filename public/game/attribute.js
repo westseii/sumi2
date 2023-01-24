@@ -105,6 +105,8 @@ const attributeData = reactive({
 //
 // Utility functions
 
+// TODO: write tests
+
 /** Utility functions for Ashfalle attributes. */
 const attribute = {
   /**
@@ -113,6 +115,22 @@ const attribute = {
    */
   getAttributes() {
     return attributeData;
+  },
+  /**
+   * Get a reactive attribute data object for a given skill id.
+   * @param {number} id
+   * @returns {object} object
+   */
+  getAttributeById(id) {
+    return Object.values(attributeData).find((attribute) => attribute._id === id);
+  },
+  /**
+   * TODO: desc.
+   * @param {number} id
+   */
+  raiseAttribute(id) {
+    const att = this.getAttributeById(id);
+    if (att.raised < cap.raise) att.raised++;
   },
 };
 
