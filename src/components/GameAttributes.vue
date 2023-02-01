@@ -18,18 +18,25 @@
     <h2>Edit Attributes</h2>
     <!-- informational panel -->
     <div class="sumi-pane">
-      <div
+      <p
         :class="zeroClass"
         v-show="innatePointsRemaining >= 0"
       >
         Innate points: {{ innatePointsRemaining }}
-      </div>
-      <div
+      </p>
+      <p
         :class="zeroClass"
         v-show="innatePointsRemaining < 0"
       >
         You've spent too many innate points!
-      </div>
+      </p>
+    </div>
+    <br />
+    <div class="sumi-todo">
+      <h3>TODO</h3>
+      <ul>
+        <li>Change raised column to editable number inputs.</li>
+      </ul>
     </div>
     <div class="attributes-table">
       <!-- table headings -->
@@ -105,7 +112,7 @@
     margin-left: 10px;
   }
   .col-2 {
-    left: 125px;
+    left: 110px;
   }
   .col-3 {
     left: 350px;

@@ -22,6 +22,14 @@ div.sumi-pane > div.sumi-pane {
   border-radius: 5px;
   border: solid 1px var(--surface-border);
 }
+div.sumi-pane > div.sumi-todo {
+  background: var(--orange-900);
+  border-radius: 5px;
+  border: solid 1px var(--orange-600);
+  color: var(--orange-300);
+  padding: 10px;
+  width: fit-content;
+}
 
 .sumi-table-headings {
   border-bottom: solid 1px var(--surface-border);

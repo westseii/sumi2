@@ -1,5 +1,6 @@
 <script setup>
   import { computed } from "vue";
+  import { skill } from "../../../public/game/ashfalle.js";
 
   const props = defineProps({
     radioGroupName: {
@@ -61,12 +62,16 @@
       <div class="sumi-table-col col-4 color-total">{{ skillData.value }}</div>
       <div class="raise-buttons">
         <Button
-          class="p-button-rounded p-button-outlined button-raise"
-          icon="pi pi-arrow-up"
+          @click="skill.rankDown(skillData._id)"
+          class="p-button-rounded p-button-outlined p-button-danger"
+          icon="pi pi-arrow-down"
+          v-show="skillData.rank !== 0"
         />
         <Button
-          class="p-button-rounded p-button-outlined"
-          icon="pi pi-arrow-down"
+          @click="skill.rankUp(skillData._id)"
+          class="p-button-rounded p-button-outlined button-up"
+          icon="pi pi-arrow-up"
+          v-show="skillData.rank !== 2"
         />
       </div>
     </label>
@@ -93,14 +98,15 @@
     position: absolute;
     right: 0;
   }
-  .button-raise {
-    margin-right: 5px;
+  .button-up {
+    margin-left: 5px;
   }
 
   .radio {
     display: none;
   }
   .radio:checked ~ .label {
+    background: var(--surface-hover);
     outline-offset: -1px;
     outline: solid 1px var(--primary-color);
   }

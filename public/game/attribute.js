@@ -128,7 +128,7 @@ const attribute = {
    * TODO: desc.
    * @param {number} id
    */
-  raiseAttribute(id) {
+  raise(id) {
     const att = this.getAttributeById(id);
     if (att.raised < cap.raise) att.raised++;
   },

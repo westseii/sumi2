@@ -438,9 +438,25 @@ const skill = {
    * TODO: desc.
    * @param {number} id
    */
-  raiseSkill(id) {
+  raise(id) {
     const skl = this.getSkillById(id);
     if (skl.raised < cap.raise) skl.raised++;
+  },
+  /**
+   * TODO: desc.
+   * @param {number} id
+   */
+  rankUp(id) {
+    const skl = this.getSkillById(id);
+    if (skl.rank < 2) skl.rank++;
+  },
+  /**
+   * TODO: desc.
+   * @param {number} id
+   */
+  rankDown(id) {
+    const skl = this.getSkillById(id);
+    if (skl.rank > 0) skl.rank--;
   },
 };
 
